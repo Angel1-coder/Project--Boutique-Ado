@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Our Boutique</title>
-    <!-- You can link your CSS file here later -->
-    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+{% extends 'base.html' %}
+
+{% block extratitle %} | Home{% endblock %}
+
+{% block content %}
+    <main>
+        <h2>Discover Your Style</h2>
+        <p>Explore our curated collection of unique items. We offer high-quality products that fit your lifestyle.</p>
+        <p>Stay tuned for exciting new arrivals!</p>
+    </main>
+{% endblock %}
+
+{% block extracss %}
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -17,6 +23,7 @@
             flex-direction: column;
             min-height: 100vh;
         }
+       
         header {
             background-color: #333;
             color: #fff;
@@ -49,24 +56,4 @@
             margin-top: auto;
         }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Welcome to Boutique Ado</h1>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact</a>
-    </nav>
-    <main>
-        <h2>Discover Your Style</h2>
-        <p>Explore our curated collection of unique items. We offer high-quality products that fit your lifestyle.</p>
-        <p>Stay tuned for exciting new arrivals!</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 Boutique Ado. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+{% endblock %}
