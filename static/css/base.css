@@ -1,0 +1,128 @@
+html {
+    height: 100%;
+}
+
+body {
+    /* Correct path for background image */
+    background-image: url('/static/images/homepage_background_cropped.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Use min-height to ensure the body fills the viewport */
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    color: #555;
+}
+
+/*
+* Header
+*/
+.header-container {
+    padding-top: 54px;
+}
+
+#topnav {
+    background-color: #fff;
+}
+
+.main-logo-link {
+    width: fit-content;
+    text-align: center;
+    text-decoration: none;
+}
+
+.main-logo-link:hover {
+    text-decoration: none;
+}
+
+.shop-name {
+    color: #212529; /* Dark blue for the "Boutique Ado" title */
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.currency {
+    color: #6C757D; /* Light blue for the currency (e.g., USD) */
+    font-size: 0.9rem;
+}
+
+.navbar-nav .nav-link {
+    color: #212529; /* Dark blue for the main navigation */
+    font-weight: 400;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Blue when hovering over a link */
+}
+
+/*
+* Fonts
+*/
+.logo-font {
+    text-transform: uppercase;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid #000 !important;
+}
+
+/*
+* Buttons
+*/
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    border: 1px solid black;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+/*
+* Icons
+*/
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* ---------------------------------- Media Queries ---------------------------------- */
+
+/* Media queries for screens larger than 992px */
+@media (min-width: 992px) {
+    /* Adjusts the container width for larger screens */
+    .container {
+        max-width: 90% !important;
+    }
+
+    /* Pushes the page content below the header */
+    .header-container {
+        padding-top: 164px;
+    }
+}

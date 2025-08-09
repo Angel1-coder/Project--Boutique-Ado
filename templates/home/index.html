@@ -1,59 +1,68 @@
+<!-- This is the main header, which will be visible on all pages. -->
+<!-- It uses Bootstrap classes to create a responsive navigation menu. -->
 {% extends 'base.html' %}
-
-{% block extratitle %} | Home{% endblock %}
-
-{% block content %}
-    <main>
-        <h2>Discover Your Style</h2>
-        <p>Explore our curated collection of unique items. We offer high-quality products that fit your lifestyle.</p>
-        <p>Stay tuned for exciting new arrivals!</p>
-    </main>
-{% endblock %}
-
-{% block extracss %}
-    <style>
+{% load static %}
+      
+             
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+        <!-- Brand Logo/Shop Name -->
+        <a class="navbar-brand logo-font" href="#">Boutique Ado</a>
         
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-       
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            background-color: #555;
-            padding: 0.5rem 0;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0 15px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: auto;
-        }
-    </style>
-{% endblock %}
+        <!-- Toggler button for mobile view -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Navigation links that are displayed on large screens -->
+            <ul class="navbar-nav w-100 justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop</a>
+                </li>
+
+                <!-- Dropdown menu for "My Account" -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="myAccountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i> My Account
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="myAccountDropdown">
+                        <!-- Django template logic to show dropdown items based on user status -->
+                        {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                            <!-- Additional link only for superusers -->
+                            {% if user.is_superuser %}
+                                <li><a class="dropdown-item" href="#">Store Management</a></li>
+                            {% endif %}
+                        {% else %}
+                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+
+                <!-- Shopping Bag Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-shopping-bag"></i>
+                        <!-- Django template logic to display the total -->
+                        <span class="bag-total">
+                            {% if grand_total %}
+                                ${{ grand_total|floatformat:2 }}
+                            {% else %}
+                                $0.00
+                            {% endif %}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- An empty div for the page header to create space below the fixed main header. -->
+<div id="page-header"></div>
